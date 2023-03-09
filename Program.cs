@@ -6,6 +6,7 @@
  */
 
 bool exitStatus = false;
+string inputStatus;
 
 Dictionary<int, string> database = new Dictionary<int, string>();
 
@@ -23,7 +24,7 @@ do
     int.TryParse(indexStr, out int index);
     //int newIndex = index - 1;
 
-    if (index >= 0 && index <= 6)
+    if (index >= 1 && index <= 6)
     {
         Console.WriteLine($"The employee with index {index} is {database[index]}");
     }
@@ -31,5 +32,15 @@ do
     {
         Console.WriteLine("Index was out of range, or doesn't exist");
     }
+
+    Console.WriteLine();
+    Console.WriteLine();
+    Console.Write("Type Exit to close, or press ENTER to continue");
+    inputStatus = Console.ReadLine();
+    if (inputStatus.ToLower() == "exit")
+    {
+        exitStatus = true;
+    }
+
 
 } while (exitStatus == false);
